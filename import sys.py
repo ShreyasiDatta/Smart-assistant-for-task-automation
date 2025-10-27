@@ -330,6 +330,7 @@ def respond(question):
         return f"Today's date is {datetime.datetime.now().strftime('%Y-%m-%d')}."
     elif "joke" in translated_question:
         return "Why don’t scientists trust atoms? Because they make up everything!"
+
     elif any(word in translated_question for word in ["open", "read", "file"]):
         file_name = extract_filename_from_command(translated_question)
         return open_file(file_name) if file_name else "Please specify a file name."
@@ -393,5 +394,6 @@ voice_button.pack(side=tk.LEFT, padx=10)
 
 output_label = tk.Label(root, text="Response: Ready.", wraplength=500, justify=tk.LEFT, anchor='w', borderwidth=2, relief="groove")
 output_label.pack(pady=20, fill='x', padx=10, ipady=10)
+
 
 root.mainloop()
